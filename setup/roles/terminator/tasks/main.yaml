@@ -1,7 +1,0 @@
----
-
-- name: "Install terminator"
-  apt:
-    pkg:
-      - terminator
-  become: yes

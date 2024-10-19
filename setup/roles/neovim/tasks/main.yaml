@@ -2,6 +2,12 @@
 
 - name: "Install Neovim"
   block:
+    - name: "Apt dependencies"
+      apt:
+        pkg:
+          - ripgrep
+      become: yes
+      when: ansible_facts['lsb']['release'] > "18.04"
     - name: "Download Neovim"
       unarchive:
         src: "{{neovim_download_url}}"
@@ -49,3 +55,5 @@
     - "lspconfig.lua"
     - "cmp.lua"
     - "colorscheme.lua"
+    - "gitsigns.lua"
+    - "telescope.lua" # Finder tool

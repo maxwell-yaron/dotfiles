@@ -7,4 +7,5 @@
       - git
       - wget
       - cmake
+      - terminator
   become: yes
