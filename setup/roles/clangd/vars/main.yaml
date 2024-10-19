@@ -1,0 +1,4 @@
+---
+
+clangd_version: "19.1.2"
+clangd_url: "https://github.com/clangd/clangd/releases/download/{{ clangd_version }}/clangd-linux-{{ clangd_version }}.zip"

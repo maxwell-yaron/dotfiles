@@ -5,3 +5,4 @@
   roles:
     - { role: apt_packages, tags: dev }
     - { role: neovim, tags: dev }
+    - { role: clangd, tags: [never, dev] }

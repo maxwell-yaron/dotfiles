@@ -1,0 +1,19 @@
+---
+
+- name: Install clangd
+  block:
+    - name: "Download"
+      unarchive:
+        src: "{{clangd_url}}"
+        dest: "{{system_data_dir}}"
+        remote_src: yes
+    - name: "Binary Symlink"
+      file:
+        src: "{{system_data_dir}}/clangd_{{clangd_version}}/bin/clangd"
+        dest: "{{system_bin_dir}}/clangd"
+        state: link
+        follow: true
+        force: true
+      become: yes
+    - debug:
+        msg: "{{system_data_dir}}/clangd_{{clangd_version}}/bin/clangd"
