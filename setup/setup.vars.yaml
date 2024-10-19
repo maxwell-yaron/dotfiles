@@ -1,0 +1,8 @@
+---
+
+system_home: "{{'~/.local' | expanduser }}"
+system_bin_dir: "{{ansible_env.XDG_BIN_HOME | default('/usr/local/bin') | expanduser }}"
+system_cache_dir: "{{ansible_env.XDG_CACHE_HOME | default('~/.local/.cache') | expanduser }}"
+system_config_dir: "{{ansible_env.XDG_CACHE_HOME | default('~/.config') | expanduser }}"
+system_data_dir: "{{ansible_env.XDG_DATA_HOME | default('~/.local/share') | expanduser }}"
+system_temp_dir: "{{ansible_env.TEMP | default('/tmp') | expanduser }}"

@@ -1,0 +1,8 @@
+---
+
+- hosts: localhost
+  connection: local
+  roles:
+    - apt_packages
+    - { role: terminator, tags: dev }
+    - { role: neovim, tags: dev }

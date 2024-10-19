@@ -1,0 +1,51 @@
+---
+
+- name: "Install Neovim"
+  block:
+    - name: "Download Neovim"
+      unarchive:
+        src: "{{neovim_download_url}}"
+        dest: "{{system_data_dir}}"
+        remote_src: yes
+    - name: "Symlink Neovim Binary"
+      file:
+        src: "{{neovim_source_dir}}/bin/nvim"
+        dest: "{{system_bin_dir}}/nvim"
+        state: link
+        follow: true
+        force: true
+      become: yes
+
+- name: "Create Neovim Directories"
+  file:
+    path: "{{item}}"
+    state: directory
+    mode: 0700
+  loop:
+    - "{{neovim_config_dir}}"
+    - "{{neovim_config_dir}}/lua"
+    - "{{neovim_config_dir}}/lua/config"
+    - "{{neovim_config_dir}}/lua/plugins"
+
+- name: "Setup init.lua"
+  block:
+    - copy:
+        src: "init.lua"
+        dest: "{{neovim_config_dir}}/init.lua"
+        mode: 0700
+
+- name: "Setup Lazy"
+  copy:
+    src: "lazy.lua"
+    dest: "{{neovim_config_dir}}/lua/config/lazy.lua"
+    mode: 0700
+
+- name: "Setup Plugins"
+  copy:
+    src: "{{item}}"
+    dest: "{{neovim_config_dir}}/lua/plugins/{{item}}"
+    mode: 0700
+  loop:
+    - "lspconfig.lua"
+    - "cmp.lua"
+    - "colorscheme.lua"

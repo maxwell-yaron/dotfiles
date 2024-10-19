@@ -1,0 +1,10 @@
+---
+
+- name: "Installing packages from apt"
+  apt:
+    pkg:
+      - build-essential
+      - git
+      - wget
+      - cmake
+  become: yes
