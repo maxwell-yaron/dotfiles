@@ -3,5 +3,5 @@
 - hosts: localhost
   connection: local
   roles:
-    - apt_packages
+    - { role: apt_packages, tags: dev }
     - { role: neovim, tags: dev }
