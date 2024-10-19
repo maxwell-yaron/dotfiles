@@ -8,8 +8,4 @@ if [ ! -f /usr/bin/ansible-playbook ]; then
   sudo apt-get install --assume-yes ansible
 fi
 
-#if [ ! -d ~/.ansible/collections/ansible_collections/community/general ]; then
-#  ansible-galaxy collection install community.general
-#fi
-
 ansible-playbook "$SCRIPT_DIR/setup.playbook.yaml" --ask-become-pass --extra-vars="@$SCRIPT_DIR/setup.vars.yaml" "$@"
