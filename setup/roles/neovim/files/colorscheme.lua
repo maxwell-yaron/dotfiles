@@ -1,3 +1,14 @@
+local config = function()
+  vim.cmd.colorscheme('sonokai')
+end
+
 return {
-  { "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 },
+  { 
+    "sainnhe/sonokai",
+    name = "sonokai", 
+    tag="v0.3.3",
+    lazy = false,
+    priority = 1000,
+    config = config,
+  },
 }

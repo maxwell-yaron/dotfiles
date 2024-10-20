@@ -47,13 +47,19 @@
     mode: 0700
 
 - name: "Setup Plugins"
-  copy:
-    src: "{{item}}"
-    dest: "{{neovim_config_dir}}/lua/plugins/{{item}}"
-    mode: 0700
-  loop:
-    - "lspconfig.lua"
-    - "cmp.lua"
-    - "colorscheme.lua"
-    - "gitsigns.lua"
-    - "telescope.lua" # Finder tool
+  block:
+    - name: "Copy Plugin Files"
+      copy:
+        src: "{{item}}"
+        dest: "{{neovim_config_dir}}/lua/plugins/{{item}}"
+        mode: 0700
+      loop:
+        - "lspconfig.lua"
+        - "cmp.lua"
+        # - "treesitter.lua" Disabled for slowness
+        - "colorscheme.lua"
+        - "gitsigns.lua"
+        - "telescope.lua" # Finder tool
+    - name: "Install Plugins"
+      command:
+        cmd: nvim "+Lazy install" +:qa
