@@ -55,11 +55,11 @@
         mode: 0700
       loop:
         - "lspconfig.lua"
-        - "cmp.lua"
-        # - "treesitter.lua" Disabled for slowness
-        - "colorscheme.lua"
+        - "cmp.lua" # Autocomplete
+        - "colorscheme.lua" # Colorscheme
+        - "doxygen.lua" # Doxygen
         - "telescope.lua" # Finder tool
-        - "fugitive.lua"
+        - "fugitive.lua" # Git blame
     - name: "Install Plugins"
       command:
         cmd: nvim "+Lazy install" +:qa
