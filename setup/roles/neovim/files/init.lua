@@ -25,5 +25,4 @@ vim.keymap.set('n', '<leader>rp', vim.lsp.buf.rename, { desc = "Replace symbols"
 -- Hover documentation
 vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = "Hover documentation" })
 -- Go to definition
-vim.keymap.set('n', '<leader>gD', vim.lsp.buf.definition, { desc = "Goto definition" })
 vim.keymap.set('n', '<leader>gd', vim.lsp.buf.declaration, { desc = "Goto declaration" })

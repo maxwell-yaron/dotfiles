@@ -58,8 +58,8 @@
         - "cmp.lua"
         # - "treesitter.lua" Disabled for slowness
         - "colorscheme.lua"
-        - "gitsigns.lua"
         - "telescope.lua" # Finder tool
+        - "fugitive.lua"
     - name: "Install Plugins"
       command:
         cmd: nvim "+Lazy install" +:qa
