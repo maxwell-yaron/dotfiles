@@ -1,0 +1,26 @@
+---
+
+- name: "Install Bazelisk"
+  block:
+    - name: "Make Directory"
+      file:
+        path: "{{bazelisk_directory}}"
+        state: directory
+        mode: 0755
+    - name: "Download"
+      get_url:
+        url: "{{bazelisk_download_url}}"
+        dest: "{{bazelisk_file}}"
+    - name: "Make Executable"
+      file:
+        dest: "{{bazelisk_file}}"
+        mode: "a+x"
+    - name: "Create Symlink"
+      file:
+        src: "{{bazelisk_file}}"
+        dest: "{{system_bin_dir}}/bazel"
+        state: link
+        follow: true
+        force: true
+      become: yes
+

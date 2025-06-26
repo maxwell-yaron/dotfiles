@@ -1,0 +1,6 @@
+---
+
+bazelisk_version: "v1.26.0"
+bazelisk_download_url: "https://github.com/bazelbuild/bazelisk/releases/download/{{bazelisk_version}}/bazelisk-linux-amd64"
+bazelisk_directory: "{{system_data_dir}}/bazelisk"
+bazelisk_file: "{{bazelisk_directory}}/bazel"
