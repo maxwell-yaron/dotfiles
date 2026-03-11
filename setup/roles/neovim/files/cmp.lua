@@ -46,21 +46,7 @@ local config = function()
     })
 
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
-    local lspconfig = require('lspconfig')
-    lspconfig.util.default_config = vim.tbl_extend(
-        "force",
-        lspconfig.util.default_config,
-        {
-            capabilities = capabilities
-        }
-    )
-    -- Setup clangd
-    lspconfig.clangd.setup({
-      cmd = {'clangd', '--background-index', '--clang-tidy', '--log=verbose'},
-      init_options = {
-        fallbackFlags = { '-std=c++17' },
-      },
-    })
+    vim.lsp.config("*", { capabilities = capabilities })
 end
 
 return {

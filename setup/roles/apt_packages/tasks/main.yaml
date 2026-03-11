@@ -4,6 +4,7 @@
   apt:
     pkg:
       - build-essential
+      - clangd
       - git
       - wget
       - cmake
