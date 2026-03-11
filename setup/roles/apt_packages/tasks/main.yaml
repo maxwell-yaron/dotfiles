@@ -9,4 +9,5 @@
       - wget
       - cmake
       - terminator
+      - xclip
   become: yes
